@@ -1,0 +1,32 @@
+{
+  "rehber": [
+    {
+      "name": "Ceyyun",
+      "pnumber": "906362283",
+      "hnumber": "4933043",
+      "email": "ceyhun@gmail.com",
+      "address": "İstanbul",
+      "type": "Friend",
+      "id": 2
+    },
+    {
+      "name": "Tahsin",
+      "pnumber": "901235533",
+      "hnumber": "2433232",
+      "email": "tahsin@gmail.com",
+      "address": "Bodrum",
+      "type": "Friend",
+      "id": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

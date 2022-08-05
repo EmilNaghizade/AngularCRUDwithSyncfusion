@@ -1,0 +1,20 @@
+<div class="control-section">
+    <ejs-grid  #grid  [dataSource]="dataSource" (commandClick)="onCommandClick($event)" class="sortingenabled" allowSorting='true' [sortSettings]='initialSort'     height='400'>
+      <e-columns >
+        <e-column  field='name' headerText='Name' width='120'   textAlign='Left'></e-column>
+        <e-column field='pnumber' headerText='Phone Number'  width='100'></e-column>
+        <e-column field='hnumber' headerText='Home Number'  width='100'></e-column>
+        <e-column field='email' headerText='Email' width='150'></e-column>
+        <e-column field='address' headerText='Address' width='200'></e-column>
+        <e-column field='type' headerText='Person Type' editType="dropdownedit" width='150'></e-column>
+        <e-column headerText='Manage Records' width=140 [commands]='Commands'></e-column>
+        
+       
+        <!-- <e-column headerText='Manage Records' width=140 [commands]='deleteCommands'></e-column> -->
+      </e-columns>
+    </ejs-grid>
+</div>
+  
+<!-- [toolbar]='toolbarOption' -->
+<!-- [editSettings]="editOption" -->
+
