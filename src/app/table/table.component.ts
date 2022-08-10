@@ -1,10 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataManager} from '@syncfusion/ej2-data';
-import {NewRowPosition,SortService, EditSettingsModel, ToolbarItems, ToolbarService, EditService, CommandModel, CommandClickEventArgs, CommandColumnService, GridComponent  } from '@syncfusion/ej2-angular-grids';
+import {NewRowPosition,SortService, EditSettingsModel, ToolbarItems, ToolbarService, EditService, CommandModel, CommandClickEventArgs, CommandColumnService, GridComponent, table  } from '@syncfusion/ej2-angular-grids';
 import { ApiService } from '../services/api.service';
 import { ChangeEventArgs, DropDownListComponent } from '@syncfusion/ej2-angular-dropdowns';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
+import { TranslateService } from '@ngx-translate/core';
+import { TranslateConfigService } from '../services/tranlate.service';
+import { RehberService } from '../services/rehber.service';
+import { Rehber } from '../models/rehber.model';
 
 
 
@@ -23,47 +27,49 @@ export class TableComponent implements OnInit {
   dataSource!: DataManager;
 
   Commands!:CommandModel[];
+  lang!: any;
+  constructor(private rehber: RehberService,
+    private activeRoute: ActivatedRoute,
+    private api: ApiService,
+    private router: Router, 
+    private translate: TranslateConfigService, 
+    private translateService: TranslateService) {
 
-  public editOption: EditSettingsModel = {allowEditing: true, allowDeleting:true ,mode: 'Normal'};
-  public toolbarOption : ToolbarItems[] = ['Edit','Delete','Update','Cancel'];
-  constructor(private api: ApiService,private router: Router) { 
     // sourceFiles.files = ['sort.style.css']
-   
   }
 
   ngOnInit(): void {
-    // this.initialSort = {
-    //   columns: [{ field: 'name', direction: 'Ascending' },
-    //   { field: 'pnumber', direction: 'Descending' }]
-    // };
     this.getAllDetails();
     this.Commands = [{type:'Edit', buttonOption: {  iconCss: ' e-icons e-edit', cssClass: 'e-flat' } } ,
     { type: 'Delete', buttonOption: { iconCss: 'e-icons e-delete', cssClass: 'e-flat' } },
-  ]
+    ];
+    
     
   }
 
- 
+  
   
   getAllDetails(){
-    this.api.getRehber()
+    this.rehber.getAllRehbers()
     .subscribe({
       next:(res)=>{
         this.dataSource = new DataManager(res);
-        
+        console.log("calisiyor")
       },
       error:()=>{
         alert("Error while fetching data!")
       }
     })
   }
+ 
+  
   
 
   onCommandClick(e:CommandClickEventArgs ) {
-    console.log()
     if (e.target?.title === 'Edit') {
       this.router.navigate(['edit',((e.rowData as any).id )]).then(()=>{
-        window.location.reload();
+        
+        // window.location.reload();
       });
       
     }else{
@@ -76,14 +82,13 @@ export class TableComponent implements OnInit {
   }
 
   deletePerson(item:any){
-    this.api.deleteRehber(item).subscribe({
+    this.rehber.deleteRehber(item).subscribe({
       next:(res)=>{
         this.dataSource.remove(item,res)
-        
       }
     })
   }
-
+  
   
 
 }

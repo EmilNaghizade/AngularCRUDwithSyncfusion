@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { FormControl, FormGroup, Validators, FormsModule, AbstractControl } from '@angular/forms';
+import { TranslateConfigService } from '../services/tranlate.service';
+import { RehberService } from '../services/rehber.service';
 
 @Component({
   selector: 'app-create',
@@ -10,14 +12,14 @@ import { FormControl, FormGroup, Validators, FormsModule, AbstractControl } from
 export class CreateComponent implements OnInit {
   public dataFields: Object= {text:'type'}
   public personType: Object= [
-    {type: 'Friend'},
+    {type: "{'type.friend'|this.tranlate}"},
     {type: 'Family'},
     {type: 'Business'}
   ];
   editData  : any 
-
+  lang!: any
   rehberForm: FormGroup;
-  constructor(private api: ApiService){
+  constructor(private tranlateConfig: TranslateConfigService,private rehber: RehberService,private api: ApiService, private translate: TranslateConfigService){
     this.rehberForm = new FormGroup({
       name: new FormControl('', Validators.required),
       pnumber: new FormControl('', [Validators.required]),
@@ -29,11 +31,15 @@ export class CreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.lang = localStorage.getItem('lang')
+    console.log(this.lang)
+    this.translate.changeLang(this.lang)
+    
   }
 
   onAddPerson(){   
         if(this.rehberForm.valid){
-          this.api.postRehber(this.rehberForm.value)
+          this.rehber.addRehber(this.rehberForm.value)
           .subscribe({
             next:(res)=>{
               alert("Person added successfully");

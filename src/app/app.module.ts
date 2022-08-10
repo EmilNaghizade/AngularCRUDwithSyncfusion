@@ -12,14 +12,17 @@ import { MaskedTextBoxModule, TextBoxModule } from '@syncfusion/ej2-angular-inpu
 import { ButtonModule } from '@syncfusion/ej2-angular-buttons';
 import { ReactiveFormsModule } from '@angular/forms';
 import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NavComponent } from './nav/nav.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader'
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -32,10 +35,18 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     DropDownListModule,
     HttpClientModule,
-    ButtonModule
-    
-    
+    ButtonModule,
+    HttpClientModule,
+    TranslateModule.forRoot(
+      {
+        loader: {
+          provide: TranslateLoader,
+          useFactory: (http: HttpClient) => {return new TranslateHttpLoader(http, './assets/i18n/', '.json')},
+          deps: [HttpClient]
 
+        }
+      }
+    )
   ],
   providers: [EditService, ToolbarService,CommandColumnService],
   bootstrap: [AppComponent]

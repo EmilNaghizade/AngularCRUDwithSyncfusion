@@ -2,38 +2,38 @@
     <div class="content-wrapper">
         <form [formGroup]="rehberForm">
             <div class="">
-                <h1 class="p-2">Add Person Form</h1>
+                <h1 class="p-2">{{'create.title'| translate}}</h1>
                 <!-- Name -->
                 <div class="col-lg-6 ">
-                    <ejs-textbox formControlName="name"   placeholder="Outlined"   placeholder="Enter Name" cssClass="e-outline" floatLabelType="Auto"></ejs-textbox>
+                    <ejs-textbox formControlName="name"     placeholder="{{'create.name'| translate}}" cssClass="e-outline" floatLabelType="Auto"></ejs-textbox>
                 </div>
                 <!-- Phone Number -->
                 <div class="col-lg-2 my-3">
-                    <ejs-maskedtextbox formControlName="pnumber"  placeholder="Outlined" placeholder="Enter Phone Number" floatLabelType="Auto" cssClass="e-outline"   mask="(00)-000-0000"></ejs-maskedtextbox>
+                    <ejs-maskedtextbox formControlName="pnumber"  placeholder="{{'create.pnumber'| translate}}" floatLabelType="Auto" cssClass="e-outline"   mask="(00)-000-0000"></ejs-maskedtextbox>
                     <span class="error" *ngIf="pnumber?.invalid && pnumber?.touched">Phone number is invalid</span>
 
                 </div>
                 <!-- Home Phone Number -->
                 <div class="col-lg-2 my-3">
-                    <ejs-maskedtextbox formControlName="hnumber"  placeholder="Outlined" placeholder="Enter Home Number" floatLabelType="Auto" cssClass="e-outline"   mask="000-00-00"></ejs-maskedtextbox>
+                    <ejs-maskedtextbox formControlName="hnumber"   placeholder="{{'create.hnumber'| translate}}" floatLabelType="Auto" cssClass="e-outline"   mask="000-00-00"></ejs-maskedtextbox>
                     <span class="error" *ngIf="hnumber?.invalid && hnumber?.touched">Home number is invalid</span>
                 </div>
                 <!-- Email -->
                 <div class="col-lg-6 my-3">
-                    <ejs-textbox     formControlName="email"  type="email" placeholder="Outlined"  placeholder="Enter Email" cssClass="e-outline" floatLabelType="Auto"></ejs-textbox>
+                    <ejs-textbox     formControlName="email"  type="email"   placeholder="{{'create.email'| translate}}" cssClass="e-outline" floatLabelType="Auto"></ejs-textbox>
                     <span class="error" *ngIf="email?.invalid && email?.touched">Email is invalid</span>
                 </div>
                 <!-- Address -->
                 <div class="multiline-row" class="col-lg-6 my-3">
-                    <ejs-textbox formControlName="address"  id="textarea" placeholder="Outlined" placeholder="Enter Address" cssClass="e-outline" floatLabelType="Auto" #default rows="5" style="width: 100%;" floatLabelType="Auto" [multiline]="true"></ejs-textbox>
+                    <ejs-textbox formControlName="address"  id="textarea"  placeholder="{{'create.address'| translate}}" cssClass="e-outline" floatLabelType="Auto" #default rows="5" style="width: 100%;" floatLabelType="Auto" [multiline]="true"></ejs-textbox>
                 </div>
                 <!-- Person Type -->
                 <div class="col-lg-6 my-3">
-                    <ejs-dropdownlist  formControlName="type"  placeholder="Outlined"  [dataSource]="personType" cssClass="e-outline" floatLabelType="Auto" [fields]="dataFields" placeholder="Select Person's Type"></ejs-dropdownlist>
+                    <ejs-dropdownlist  formControlName="type"    [dataSource]="personType" cssClass="e-outline" floatLabelType="Auto" [fields]="dataFields" placeholder="{{'create.type'| translate}}"></ejs-dropdownlist>
                 </div>
                 <!-- Button -->
                 <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">
-                    <button [disabled]="rehberForm.invalid" (click)="onAddPerson()" routerLink="/" ejs-button cssClass="e-success" >Add Person</button>
+                    <button [disabled]="rehberForm.invalid" (click)="onAddPerson()" routerLink="/" ejs-button cssClass="e-success" >{{'create.button'|translate}}</button>
                 </div>
             </div>
         </form>

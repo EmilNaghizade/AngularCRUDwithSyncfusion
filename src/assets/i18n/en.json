@@ -1,0 +1,40 @@
+{
+    "nav":{
+        "title":"Phone Contact",
+        "button":"Add Person"
+    },
+    "table":{
+        "name": "Name",
+        "pnumber": "Phone Number",
+        "hnumber": "Home Number",
+        "email": "Email",
+        "address": "Address",
+        "type": "Person Type",
+        "ed": "Manage Recods"
+    },
+    "edit":{
+        "title":"Edit Person Form",
+        "name":"Enter Name",
+        "pnumber": "Enter Phone Number",
+        "hnumber": "Enter Home Number",
+        "email": "Enter Email",
+        "address": "Enter Address",
+        "type": "Select Person's Type",
+        "button": "Edit"
+    },
+    "create":{
+        "title":"Add Person Form",
+        "name":"Enter Name",
+        "pnumber": "Enter Phone Number",
+        "hnumber": "Enter Home Number",
+        "email": "Enter Email",
+        "address": "Enter Address",
+        "type": "Select Person's Type",
+        "button":"Add"
+    },
+    "type":{
+        "friend":"Friend",
+        "family":"Family",
+        "business":"Business"
+    }
+}

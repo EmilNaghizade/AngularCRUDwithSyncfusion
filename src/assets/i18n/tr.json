@@ -1,0 +1,41 @@
+{
+    "nav":{
+        "title":"Telefon Rehberi",
+        "button":"Kişi Ekle"
+    },
+    "table":{
+        "name":"İsim",
+        "pnumber": "Telefon Numarası",
+        "hnumber": "Ev Telefonu",
+        "email": "Email",
+        "address": "Adres",
+        "type": "Kişi Tipi",
+        "ed": "Düzenlemeler"
+    },
+    "edit":{
+        "title":"Düzenleme Formu",
+        "name":"İsim Girin",
+        "pnumber": "Telefon Numarası Girin",
+        "hnumber": "Ev Telefonu Girin",
+        "email": "Email Girin",
+        "address": "Adres Girin",
+        "type": "Kişi Tipi Seçin",
+
+        "button":"Düzenle"
+    },
+    "create":{
+        "title":"Oluşturma Formu",
+        "name":"İsim Girin",
+        "pnumber": "Telefon Numarası Girin",
+        "hnumber": "Ev Telefonu Girin",
+        "email": "Email Girin",
+        "address": "Adres Girin",
+        "type": "Kişi Tipi Seçin",
+        "button":"Ekle"
+    },
+    "type":{
+        "friend":"Arkadaş",
+        "family":"Aile",
+        "business":"İş"
+    }
+}

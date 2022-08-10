@@ -1,0 +1,26 @@
+ejs-dropdownlist{
+    width: 10%;
+    padding: 0;
+}
+
+.form-select{
+    width: 10%;
+}
+
+.lan{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+}
+button{
+    height: 100%;
+    width: 10%;
+}
+
+svg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}

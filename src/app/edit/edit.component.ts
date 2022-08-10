@@ -4,6 +4,9 @@ import { ApiService } from '../services/api.service';
 import { DataManager, UrlAdaptor } from '@syncfusion/ej2-data';
 import { EditSettingsModel, ToolbarItems } from '@syncfusion/ej2-angular-grids';
 import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { TranslateConfigService } from '../services/tranlate.service';
+import { RehberService } from '../services/rehber.service';
+import { Rehber } from '../models/rehber.model';
 
 
 @Component({
@@ -28,14 +31,16 @@ export class EditComponent implements OnInit {
     {type: 'Family'},
     {type: 'Business'}
   ];
+  edit: Rehber[]=[];
+  lang!: any
   public dataFields: Object= {text:'type'}
-  constructor(private api: ApiService, private formBuilder: FormBuilder, private activeRoute: ActivatedRoute) { 
+  constructor(private rehber: RehberService,private api: ApiService, private formBuilder: FormBuilder, private activeRoute: ActivatedRoute, private translate: TranslateConfigService) { 
     
   }
 
   ngOnInit(): void {
     let id = this.activeRoute.snapshot.paramMap.get('id');
-    this.api.getRehberById(id as any).subscribe((result)=>{
+    this.rehber.getRehber(id as any).subscribe((result)=>{
       this.editRehber = new FormGroup({
         name: new FormControl(result['name'], [Validators.required]),
         pnumber: new FormControl(result['pnumber'], [Validators.required]),
@@ -43,18 +48,21 @@ export class EditComponent implements OnInit {
         email: new FormControl(result['email'], [Validators.required, Validators.email]),
         address: new FormControl(result['address']),
         type: new FormControl(result['type'], [Validators.required]),
-      
       })
      
     })
+    this.lang = localStorage.getItem('lang')
+    console.log(this.lang)
+    this.translate.changeLang(this.lang)
+    console.log(this.activeRoute.snapshot.paramMap.get('id'))
   }
   
 
   collection(){
     console.log(this.editRehber.value)
-    this.api.putRehber(this.editRehber.value,this.activeRoute.snapshot.paramMap.get('id')).subscribe((res)=>{
+    this.rehber.updateRehber(this.editRehber.value,this.activeRoute.snapshot.paramMap.get('id')).subscribe((res)=>{
       console.warn(res)
-      
+      window.location.reload()
     })
   }
 
