@@ -1,7 +1,10 @@
 {
     "nav":{
         "title":"Phone Contact",
-        "button":"Add Person"
+        "button":"Add Person",
+        "login":"Login",
+        "signup":"Sign Up",
+        "logout":"Logout"
     },
     "table":{
         "name": "Name",
@@ -18,6 +21,7 @@
         "pnumber": "Enter Phone Number",
         "hnumber": "Enter Home Number",
         "email": "Enter Email",
+        "password":"Enter Password",
         "address": "Enter Address",
         "type": "Select Person's Type",
         "button": "Edit"
@@ -36,5 +40,21 @@
         "friend":"Friend",
         "family":"Family",
         "business":"Business"
+    },
+    "login":{
+        "h1":"Login",
+        "h6":"Please Enter Email and Password",
+        "button":"Login",
+        "a": "New user? Click to Sign Up"
+    },
+    "signup":{
+        "h1":"Sign Up",
+        "h6":"Register Yourself",
+        "button":"Sign Up",
+        "email":"Enter Email",
+        "name":"Enter Name",
+        "pnumber": "Enter Phone Number",
+        "password":"Enter Password",
+        "a":"Already Register? Click to Login"
     }
 }

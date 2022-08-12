@@ -29,7 +29,14 @@
                 </div>
                 <!-- Person Type -->
                 <div class="col-lg-6 my-3">
-                    <ejs-dropdownlist  formControlName="type"    [dataSource]="personType" cssClass="e-outline" floatLabelType="Auto" [fields]="dataFields" placeholder="{{'create.type'| translate}}"></ejs-dropdownlist>
+                    <ejs-dropdownlist   formControlName="type"    [dataSource]="personType" cssClass="e-outline" floatLabelType="Auto"  placeholder="{{'create.type'| translate}}" [fields]="fields">
+                        <!-- <ng-template #valueTemplate='' let-data=''>
+                            {{data.type|translate}}
+                        </ng-template>
+                        <ng-template #itemTemplate='' let-data=''>
+                            {{data.type|translate}}
+                        </ng-template> -->
+                    </ejs-dropdownlist>
                 </div>
                 <!-- Button -->
                 <div class="col-xs-12 col-sm-12 col-lg-6 col-md-6">

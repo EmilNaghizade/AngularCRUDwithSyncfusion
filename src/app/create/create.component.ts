@@ -3,6 +3,7 @@ import { ApiService } from '../services/api.service';
 import { FormControl, FormGroup, Validators, FormsModule, AbstractControl } from '@angular/forms';
 import { TranslateConfigService } from '../services/tranlate.service';
 import { RehberService } from '../services/rehber.service';
+import { ObservableLike } from 'rxjs';
 
 @Component({
   selector: 'app-create',
@@ -10,12 +11,13 @@ import { RehberService } from '../services/rehber.service';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-  public dataFields: Object= {text:'type'}
+  public fields: Object={text: 'type'}
   public personType: Object= [
-    {type: "{'type.friend'|this.tranlate}"},
+    {type: 'Friend'},
     {type: 'Family'},
     {type: 'Business'}
   ];
+  
   editData  : any 
   lang!: any
   rehberForm: FormGroup;

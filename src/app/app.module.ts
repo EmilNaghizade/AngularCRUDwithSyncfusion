@@ -15,14 +15,23 @@ import { DropDownListModule } from '@syncfusion/ej2-angular-dropdowns';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavComponent } from './nav/nav.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core'
-import { TranslateHttpLoader } from '@ngx-translate/http-loader'
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component'
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() { 
+  return localStorage.getItem("jwt"); 
+}
 @NgModule({
   declarations: [
     AppComponent,
     TableComponent,
     CreateComponent,
     EditComponent,
-    NavComponent
+    NavComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +46,12 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader'
     HttpClientModule,
     ButtonModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        disallowedRoutes: []
+      }
+    }),
     TranslateModule.forRoot(
       {
         loader: {

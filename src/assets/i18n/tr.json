@@ -1,7 +1,10 @@
 {
     "nav":{
         "title":"Telefon Rehberi",
-        "button":"Kişi Ekle"
+        "button":"Kişi Ekle",
+        "login":"Giriş Yap",
+        "signup":"Kayıt Ol",
+        "logout":"Çıkış Yap"
     },
     "table":{
         "name":"İsim",
@@ -18,9 +21,9 @@
         "pnumber": "Telefon Numarası Girin",
         "hnumber": "Ev Telefonu Girin",
         "email": "Email Girin",
+        "password":"Şifre Girin",
         "address": "Adres Girin",
         "type": "Kişi Tipi Seçin",
-
         "button":"Düzenle"
     },
     "create":{
@@ -37,5 +40,21 @@
         "friend":"Arkadaş",
         "family":"Aile",
         "business":"İş"
+    },
+    "login":{
+        "h1":"Giriş Yap",
+        "h6":"Lütfen Email ve Şifrenizi Giriniz",
+        "button":"Giriş Yap",
+        "a": "Hesabınız yok mu? Kayıt Olun"
+    },
+    "signup":{
+        "h1":"Kayıt Ol",
+        "h6":"Bilgilerinizi Girin",
+        "button":"Kayıt Ol",
+        "email": "Email Girin",
+        "name":"İsim Girin",
+        "pnumber": "Telefon Numarası Girin",
+        "password":"Şifre Girin",
+        "a" : "Hesabınız var mı? Giriş Yapın"
     }
 }

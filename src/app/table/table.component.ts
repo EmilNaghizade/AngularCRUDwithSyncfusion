@@ -9,6 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 import { TranslateConfigService } from '../services/tranlate.service';
 import { RehberService } from '../services/rehber.service';
 import { Rehber } from '../models/rehber.model';
+import { Token } from '@angular/compiler';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -25,6 +27,7 @@ export class TableComponent implements OnInit {
   public dropDown!: DropDownListComponent;
   initialSort!: Object;
   dataSource!: DataManager;
+  tables:any;
 
   Commands!:CommandModel[];
   lang!: any;
@@ -32,7 +35,8 @@ export class TableComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private api: ApiService,
     private router: Router, 
-    private translate: TranslateConfigService, 
+    private translate: TranslateConfigService,
+    private http : HttpClient, 
     private translateService: TranslateService) {
 
     // sourceFiles.files = ['sort.style.css']
@@ -54,6 +58,7 @@ export class TableComponent implements OnInit {
     .subscribe({
       next:(res)=>{
         this.dataSource = new DataManager(res);
+        this.tables = res
         console.log("calisiyor")
       },
       error:()=>{
@@ -88,6 +93,17 @@ export class TableComponent implements OnInit {
       }
     })
   }
+
+  isUserAuth(){
+    const token: string = localStorage.getItem("jwt");
+    if(token){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
+  
   
   
 

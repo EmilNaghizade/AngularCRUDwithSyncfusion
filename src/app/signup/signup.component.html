@@ -1,0 +1,28 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="text-center">
+                    <h1>{{'signup.h1'| translate}}</h1>
+                    <h6>{{'signup.h6'|translate}}</h6>
+                </div>
+                <form [formGroup]="signupRehber">
+                    <!-- <div class=" col-lg-12 my-3">
+                        <ejs-textbox formControlName="name" placeholder="{{'signup.name'|translate}}" cssClass="e-outline" floatLabelType="Auto"></ejs-textbox>
+                    </div> -->
+                    <div class="col-lg-12 my-3 py-1">
+                        <ejs-textbox formControlName="email"  type="email"  placeholder="{{'signup.email'| translate}}" cssClass="e-outline" floatLabelType="Auto"></ejs-textbox>
+                        <span class="error" *ngIf="email?.invalid && email?.touched">Email is invalid</span>
+                    </div>
+                    <div class="col-lg-12 my-4">
+                        <div class="e-input-group">
+                            <input formControlName="password" class="e-input" type="password" placeholder="{{'signup.password' | translate}}"  />
+                        </div>
+                    </div>
+                    <button (click)="signUp()" ejs-button cssClass="e-info" class="btn btn-primary mb-2">{{'signup.button'|translate}}</button>
+                </form>
+                <span><a style="color: #2b2d42;margin-top: 10px;" routerLink="/login">{{'signup.a'| translate}}</a></span>
+            </div>
+        </div>
+    </div>
+</div>

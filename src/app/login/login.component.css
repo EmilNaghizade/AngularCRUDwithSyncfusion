@@ -1,0 +1,29 @@
+.card{
+    /* margin-top: 10px; */
+    border: none;
+    width: 500px;
+    padding: 40px;
+    position: absolute;
+    top: -10%;
+    left: 50%;
+    transform: translate(-50%,50%);
+    background-color: #edf2f4;
+}
+
+.card h1,
+h6{
+    color: #2b2d42;
+}
+span{
+    color: red;
+}
+
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* a{
+
+    text-decoration: none;
+} */
